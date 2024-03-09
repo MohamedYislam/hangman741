@@ -19,23 +19,21 @@ To play this version of Hangman, follow these simple steps:
 
 To start the game:
 
-1. Execute the `hangman.py` file with Python.
-2. The game will prompt you to guess a letter.
-3. Enter your guesses one letter at a time.
-4. The game provides immediate feedback on your guess, indicating whether it's correct, incorrect, or if it's a letter you've already tried.
-5. If your guess is incorrect, the game will notify you and update you on the remaining number of lives.
-6. The game continues until you either guess the word correctly or run out of lives.
+1. Execute the `hangman.py` file with Python. This will automatically start a new game of Hangman.
+2. Follow the prompts to guess letters one at a time. The game will provide immediate feedback about each guess.
+3. Keep guessing letters until you either guess the word correctly or run out of lives.
+
+The game introduces a streamlined way to start and play through a session of Hangman with minimal setup.
 
 ## Progress and Learning
 
-So far, the game has developed to include:
-- Random word selection from a list, giving you a new challenge each time you play.
-- Continuous prompting for the user's guess until a valid letter is entered, ensuring engagement throughout the gameplay.
-- Detailed feedback to the user on each guess, including whether the guessed letter is in the word, if it's a letter already tried, and updates on the remaining lives for incorrect guesses.
-- Introduction of a lives system, where the player starts with a default number of lives, and each incorrect guess reduces this count, adding a layer of challenge to the game.
-- Functions to organize the code logically: `check_guess` for checking the guess and updating the game state accordingly, and `ask_for_input` for managing user input and maintaining the game flow.
+The game's development now encapsulates:
+- The encapsulation of game logic within a `Hangman` class, providing a structured and object-oriented approach to game development.
+- The introduction of a `play_game` function that initializes the game, starts the main game loop, and handles the win/loss conditions. This function simplifies starting a game and abstracts away the setup details.
+- Enhanced feedback mechanisms to the user, including a summary of letters guessed so far and the remaining number of unique letters to guess.
+- The use of docstrings in the `Hangman` class methods to provide clear documentation and aid understanding for other developers.
 
-This incremental development approach, along with the introduction of a lives tracking system, helps in understanding basic Python syntax, functions, loops, conditionals, and the fundamentals of building interactive applications.
+These additions and refinements to the project showcase the application of more advanced Python programming concepts, such as class-based organization, loop control, and basic game state management, all while continuing to provide an engaging user experience.
 
 ## License
 
