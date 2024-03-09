@@ -1,3 +1,25 @@
+"""
+Create a function that will run all the code to run the game as expected. 
+You should begin by creating a new script called milestone_5.py. 
+Copy all the codes in milestone_4.py file into the newly created milestone_5.py file.
+
+
+Step 1:
+Create a function called play_game that takes word_list as a parameter. Inside the function, write the code for the following steps
+
+Create a variable called num_lives and assign it to 5
+Create an instance of the Hangman class. Do this by calling the Hangman class and assign it to a variable called game
+Pass word_list and num_lives as arguments to the game object
+Create a while loop and set the condition to True. In the body of the loop, do the following:
+Check if the num_lives is 0. If it is, that means the game has ended and the user lost. Print a message saying 'You lost!'
+Next, check if the num_letters is greater than 0. In this case, you would want to continue the game, so you need to call the ask_for_input method.
+If the num_lives is not 0 and the num_letters is not greater than 0, that means the user has won the game. Print a message saying 'Congratulations. You won the game!'
+Step 2:
+Outside the function, call your play_game function to play your game. Don't forget to pass in your list of words as argument to the function.
+"""
+
+
+
 import random
 
 class Hangman:
@@ -45,7 +67,7 @@ class Hangman:
                 if letter == guess:
                     self.word_guessed[index] = letter
             # After revealing the guessed letter, print the current state of word_guessed
-            print(f"{self.word_guessed}, self.word_guessed")
+            print(f"{self.word_guessed}")
             self.num_letters -= 1  # Decrease the count of unique letters yet to be guessed
         else:
             self.num_lives -= 1 # Decreasing the number of lives by one
@@ -69,20 +91,26 @@ class Hangman:
             elif guess in self.list_of_guesses:
                 print(f"You already tried the letter {guess}")
             else:
-                # If the guess is valid and not yet tried, check the guess
-                self._check_guess(guess)
+                self._check_guess(guess)   # If the guess is valid and not yet tried, check the guess
+                self.list_of_guesses.append(guess) # Updating the array to keep count of all valid guesses.
+                print(f"{self.list_of_guesses} list of guesses")
+                break;
 
 
+def play_game(word_list):
+    num_lives = 5
 
-test = Hangman(["Banana", "Cheese", "Dates"])
+    game = Hangman(word_list, num_lives)
 
+    while True:
+        print(f"{game.num_letters}, num_letters")
+        if num_lives == 0:
+            print("You lost")
+            break;
+        elif game.num_letters > 0:
+            game.ask_for_input()
+        else:
+            print("Congratulations, You've won")
+            break;
 
-print(f"{test.word} word")
-print(f"{test.word_guessed} word_guessed")
-print(f"{test.word_list} word_list")
-print(f"{test.num_letters} num_letter")
-print(f"{test.num_lives} num_lives")
-print(f"{test.list_of_guesses} list_of_guesses")
-
-
-print(test.ask_for_input())
+play_game(["Mercury", "Venus", "Earth", "Mars"])
