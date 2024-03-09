@@ -1,6 +1,19 @@
 import random
 
 class Hangman:
+
+    """
+    A class to represent a Hangman game.
+
+    Attributes:
+        word_list (list of str): A list of words for the game.
+        num_lives (int): The number of incorrect guesses allowed.
+        word (str): The word to be guessed, selected randomly at the start.
+        word_guessed (list of str): The current state of guesses, initially all underscores.
+        num_letters (int): The number of unique letters in the word that haven't been guessed yet.
+        list_of_guesses (list of str): Letters that have been guessed so far.
+    """
+
     def __init__(self, word_list, num_lives=5):
         self.word_list = word_list   # word_list: list - A list of words
         self.word = random.choice(self.word_list).lower()  # The word to be guessed, picked randomly from the word_list. 
@@ -13,6 +26,15 @@ class Hangman:
 
     # Method to check the player's guess against the selected word
     def _check_guess(self, guess):
+        """
+        Checks the player's guess against the word and updates the game state accordingly.
+
+        Parameters:
+            guess (str): The letter guessed by the player.
+
+        Returns:
+            None
+        """
         guess = guess.lower()  # Converts the guess to lowercase for comparison
         # If the guess is in the word, update the word_guessed to reflect the correct guess
         if guess in self.word:
@@ -32,6 +54,12 @@ class Hangman:
 
     # Method to prompt the player to guess a letter
     def ask_for_input(self):
+        """
+        Continuously prompts the player to guess a letter until a valid guess is made.
+
+        Returns:
+            None
+        """
         while True:  # Loop indefinitely until a valid guess is made
             guess = input("Enter a single letter: ")
             # Validate the input; it must be a single alphabetic character
