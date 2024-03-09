@@ -12,7 +12,7 @@ class Hangman:
         self.list_of_guesses = [] # A list of the guesses that have already been tried. Set  to an empty list initially
 
     # Method to check the player's guess against the selected word
-    def check_guess(self, guess):
+    def _check_guess(self, guess):
         guess = guess.lower()  # Converts the guess to lowercase for comparison
         # If the guess is in the word, update the word_guessed to reflect the correct guess
         if guess in self.word:
@@ -42,7 +42,7 @@ class Hangman:
                 print(f"You already tried the letter {guess}")
             else:
                 # If the guess is valid and not yet tried, check the guess
-                self.check_guess(guess)
+                self._check_guess(guess)
 
 
 
@@ -56,6 +56,5 @@ print(f"{test.num_letters} num_letter")
 print(f"{test.num_lives} num_lives")
 print(f"{test.list_of_guesses} list_of_guesses")
 
-print(test.check_guess("v"))
 
 print(test.ask_for_input())
