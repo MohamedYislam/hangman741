@@ -92,3 +92,8 @@ def play_game(word_list):
             break;
 
 play_game(["Mercury", "Venus", "Earth", "Mars"])
+
+
+if __name__ == '__main__':
+    word_list = ['apple', 'banana', 'orange', 'pear', 'strawberry', 'watermelon']
+    play_game(word_list)
